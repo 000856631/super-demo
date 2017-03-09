@@ -1,0 +1,17 @@
+extends layout
+block content
+  form(method='post', action='/file/uploading', enctype='multipart/form-data')
+    input#inputUserName(type="text", placeholder="username", name="username")
+    div
+    input#inputWord(type="text", placeholder="inputWord", name="inputWord")
+    div
+    input#address(type="text", placeholder="address", name="address")
+    div
+    input#lat(type="text", placeholder="lat", name="lat")
+    div
+    input#lng(type="text", placeholder="lng", name="lng")
+    div
+    input(name='inputFile', type='file', multiple='mutiple',id='j_imgfile')
+    input(name='btnUp', type='submit',value='上传')
+    div
+    img(src='/files/4EGZudNLwy9pULk2QbRGRaMu.png',id='j_imgPic',width='230',height='400')
