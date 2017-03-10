@@ -5,13 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // New Code
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/uploadImgTable');
-var mongoose = require("mongoose");
-var db = mongoose.connect("admin:t7BdEPiq@db2.daocloudinternal.io:60150/temp_db");
-db.connection.on("open", function () {  console.log("------数据库连接成功！------"); });
-db.connection.on("error", function (error) {  console.log("数据库连接失败：" + error); })
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -30,10 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req,res,next){
-  req.db = db;
-  next(req, res);
-});
+// app.use(function(req,res,next){
+//   req.db = db;
+//   next(req, res);
+// });
 app.use('/', index);
 app.use('/users', users);
 
