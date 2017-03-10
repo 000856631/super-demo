@@ -58,7 +58,7 @@ router.post('/file/uploading', function(req, res, next){
           // res.location("userlist");
           // And forward to success page
           // res.redirect("userlist");
-          console.log('插入数据成果'+userName);
+          console.log('插入数据成功:'+userName);
         }
       });
     }
@@ -70,12 +70,18 @@ router.post('/file/uploading', function(req, res, next){
 });
 /* GET usetlist page. */
 router.get('/userlist', function(req, res) {
-  var db = req.db;
-  var collection = db.get('usercollection');
-  collection.find({},{},function(e,docs){
-    res.render('userlist', {
-      "userlist" : docs
-    });
+  var wherestr = {'username' : 'Tracy McGrady'};
+  UserUpload.find({},function(err,docs){
+    if (err) {
+      console.log("Error:" + err);
+    }
+    else {
+      console.log("Res:" + docs);
+      res.render('userlist', {
+        "userlist" : docs
+      });
+    }
+
   });
 });
 /* GET New User page. */
