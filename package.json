@@ -13,6 +13,7 @@
     "fs": "0.0.1-security",
     "jade": "~1.11.0",
     "mongodb": "^2.2.24",
+    "mongoose": "^4.8.6",
     "monk": "^4.0.0",
     "morgan": "~1.7.0",
     "multiparty": "^4.1.3",
